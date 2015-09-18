@@ -1,0 +1,134 @@
+/* print square roots in C++ language.  R. Brown, 9/2010 */
+
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+main()
+{
+  cout << "sqrt(n)" << endl << "--------" << endl;
+  for (int n=0;  n<=5;  n++)
+    cout << sqrt(n) << endl;
+  return 0;
+}
+
+sqrt(n)
+--------
+0
+1
+1.41421
+1.73205
+2
+2.23607
+
+
+/* print square roots in C language.  R. Brown, 9/2010 */
+
+#include <stdio.h>
+#include <math.h>
+
+main()
+{
+  int n;
+  printf("sqrt(n)\n--------\n");
+  for (n=0;  n<=5;  n++)
+    printf("%f\n", sqrt(n));
+  return 0;
+}
+
+sqrt(n)
+--------
+0.000000
+1.000000
+1.414214
+1.732051
+2.000000
+2.236068
+Script started on Sat 12 Sep 2015 05:41:55 PM CDT
+rns202-14.cs.stolaf.edu% mzscheme
+Welcome to Racket v5.3.
+> (+ 7 2 )  )
+9
+> (- 3 1)
+2
+> (  - 3 100)
+-97
+> (* 1 2 3 4 5  )
+120
+> (exit)
+rns202-14.cs.stolaf.edu% edit[K[K[Kxit
+exit
+
+Script done on Sat 12 Sep 2015 05:43:06 PM CDT
+Script started on Sat 12 Sep 2015 06:18:04 PM CDT
+rns202-14.cs.stolaf.edu% mzscheme
+mzscheme: Command not found.
+rns202-14.cs.stolaf.edu% source ~cs241/setup
+rns202-14.cs.stolaf.edu% mzscheme
+Welcome to Racket v5.3.
+> ;;; print square roots in Scheme language.  R. Brown, 9/2010
+
+(define print-sqrts
+  (lambda (n) ; print square roots from n to 5
+    (if (>  n 5) 'done
+	(begin 
+	  (display (sqrt n))
+	  (newline)
+	  (print-sqrts (+ n 1))))))
+
+(display "(sqrt n)")
+(newline)
+(display "----------")
+(newline)
+(print-sqrts 0)
+> (sqrt n)> 
+> ----------> 
+> 0
+1
+1.4142135623730951
+1.7320508075688772
+2
+2.23606797749979
+done
+> cp    (exit)
+rns202-14.cs.stolaf.edu% cp ![K ~cs241/hw/Sqrts.java .
+rns202-14.cs.stolaf.edu% javac Sqrts.java
+/home/mscs/bin64/javac
+rns202-14.cs.stolaf.edu% java Sqrts
+/home/mscs/bin64/java
+sqrt(n)
+--------
+0.0
+1.0
+1.4142135623730951
+1.7320508075688772
+2.0
+2.23606797749979
+rns202-14.cs.stolaf.edu% ls
+hw1A.out  sqrts1.c  [0m[38;5;40msqrts3[0m   sqrts.C      Sqrts.java  sqrts.pyc  typescript
+[38;5;40msqrts1[0m    [38;5;40msqrts2[0m    sqrts.c  Sqrts.class  sqrts.py    sqrts.scm
+rns202-14.cs.stolaf.edu% cp ~cs241/hw/sqrts.py .
+rns202-14.cs.stolaf.edu% pyto[Khon3 sqrts.py
+sqrt(n)
+--------
+0.0
+1.0
+1.41421356237
+1.73205080757
+2.0
+2.2360679775
+rns202-14.cs.stolaf.edu% pythi[Kon 0[K-m py_cop[Kmpile Sqrts.py[1@2 2[P[1@3 -m py_compile S[P[1@sqrts.py
+rns202-14.cs.stolaf.edu% pythin[K[Kon3 sqrts.pyc
+sqrt(n)
+--------
+0.0
+1.0
+1.41421356237
+1.73205080757
+2.0
+2.2360679775
+rns202-14.cs.stolaf.edu% s[Kexit
+exit
+
+Script done on Sat 12 Sep 2015 06:22:15 PM CDT

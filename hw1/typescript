@@ -1,0 +1,220 @@
+Script started on Sat 12 Sep 2015 05:49:47 PM CDT
+rns202-14.cs.stolaf.edu% ;;;print square to[K[Kroots i Scheme LKa[K[Kanguage. R . BRow[K[K[Krown, 9/20 10
+print: Command not found.
+rns202-14.cs.stolaf.edu% ma[Kzschem,e[K[Ke
+Welcome to Racket v5.3.
+> ;;; print square roots in Scheme L language. R  . Bwo  rown, 9/2010
+(define print-sqrts
+)    (lambda (n) ; print sw quare roots from n to 5
+    (if (>n 5^[[D^[[D            n 5) 'done
+        (begin
+            (dsipla     si  isplay (sqrt n))
+          (newline)
+          (print-sqrts (+ n 1))))))
+> (dsi  isplay "(sqrt n)")
+(sqrt n)> ;;;   
+(exit)
+rns202-14.cs.stolaf.edu% mzscheme
+Welcome to Racket v5.3.
+> ;;;print swa  qay   quare roots in Scheme Lan   ka  language. R  . Brown, 9/2010
+(dsip   isplay "s (sqrt m n)")
+(sqrt n)> (newline)
+
+> (newline)
+
+> 
+(newline)
+
+> (display "----------")
+----------> (newline)
+
+> (pint     rint  0s  -sqrts 0)
+print-sqrts: undefined;
+ cannot reference undefined identifier
+  context...:
+   /home/mscs/racket/collects/racket/private/misc.rkt:87:7
+> uare roots from n to 5
+    (if (>  n 5) 'done
+	(begin 
+	  (display (sqrt n))
+	  (newline)
+uare: undefined;
+ cannot reference undefined identifier
+  context...:
+   /home/mscs/racket/collects/racket/private/misc.rkt:87:7
+> roots: undefined;
+ cannot reference undefined identifier
+  context...:
+   /home/mscs/racket/collects/racket/private/misc.rkt:87:7
+> from: undefined;
+ cannot reference undefined identifier
+  context...:
+   /home/mscs/racket/collects/racket/private/misc.rkt:87:7
+> n: undefined;
+ cannot reference undefined identifier
+  context...:
+   /home/mscs/racket/collects/racket/private/misc.rkt:87:7
+> to: undefined;
+ cannot reference undefined identifier
+  context...:
+   /home/mscs/racket/collects/racket/private/misc.rkt:87:7
+> 5
+> uare roots from n to 5
+    (if (>  n 5) 'done
+	(begin 
+	  (display (sqrt n))
+	  (newline)
+^[[3~^[[3~          ^[[3~     
+(nweql    ewline)
+(newline)
+(exit)
+
+(exit)
+exit
+^Z
+Suspended
+rns202-14.cs.stolaf.edu% script
+Script started, file is typescript
+rns202-14.cs.stolaf.edu% exit
+exit
+Script done, file is typescript
+rns202-14.cs.stolaf.edu% cat type s[Kscript
+Script started on Sat 12 Sep 2015 05:57:39 PM CDT
+rns202-14.cs.stolaf.edu% exit
+exit
+
+Script done on Sat 12 Sep 2015 05:57:43 PM CDT
+rns202-14.cs.stolaf.edu% script
+Script started, file is typescript
+rns202-14.cs.stolaf.edu% mzscheme
+Welcome to Racket v5.3.
+> ;;; print square roots in Scheme language.  R. Brown, 9/2010
+
+(define print-sqrts
+  (lambda (n) ; print square roots from n to 5
+    (if (>  n 5) 'done
+	(begin 
+	  (display (sqrt n))
+	  (newline)
+	  (print-sqrts (+ n 1))))))
+
+(display "(sqrt n)")
+(newline)
+(display "----------")
+(newline)
+(print-sqrts 0)
+> (sqrt n)> 
+> ----------> 
+> 0
+1
+1.4142135623730951
+1.7320508075688772
+2
+2.23606797749979
+done
+> (exit)
+rns202-14.cs.stolaf.edu% exit
+exit
+Script done, file is typescript
+rns202-14.cs.stolaf.edu% cat typescript
+Script started on Sat 12 Sep 2015 05:58:17 PM CDT
+rns202-14.cs.stolaf.edu% mzscheme
+Welcome to Racket v5.3.
+> ;;; print square roots in Scheme language.  R. Brown, 9/2010
+
+(define print-sqrts
+  (lambda (n) ; print square roots from n to 5
+    (if (>  n 5) 'done
+	(begin 
+	  (display (sqrt n))
+	  (newline)
+	  (print-sqrts (+ n 1))))))
+
+(display "(sqrt n)")
+(newline)
+(display "----------")
+(newline)
+(print-sqrts 0)
+> (sqrt n)> 
+> ----------> 
+> 0
+1
+1.4142135623730951
+1.7320508075688772
+2
+2.23606797749979
+done
+> (exit)
+rns202-14.cs.stolaf.edu% exit
+exit
+
+Script done on Sat 12 Sep 2015 05:58:53 PM CDT
+rns202-14.cs.stolaf.edu% pwd
+/home/users/shah2/HD/hw1
+rns202-14.cs.stolaf.edu% cp !~[K[K~cs241/hw/Sqrts.java .
+rns202-14.cs.stolaf.edu% cat Sqrts.java
+/* print square roots in Java language.  R. Brown, 9/2010 */
+
+class Sqrts {
+  public static void main(String args[]) {
+    System.out.println("sqrt(n)");
+    System.out.println("--------");
+    int n;
+    for (n=0;  n<=5;  n++)
+      System.out.println(Math.sqrt(n));
+    return;
+
+  }
+}rns202-14.cs.stolaf.edu% jaca[K[Kvac Sqrts.java
+/home/mscs/bin64/javac
+rns202-14.cs.stolaf.edu% java Sqrts
+/home/mscs/bin64/java
+sqrt(n)
+--------
+0.0
+1.0
+1.4142135623730951
+1.7320508075688772
+2.0
+2.23606797749979
+rns202-14.cs.stolaf.edu% ls
+hw1A.out  sqrts1.c  [0m[38;5;40msqrts3[0m   sqrts.C      Sqrts.java  typescript
+[38;5;40msqrts1[0m    [38;5;40msqrts2[0m    sqrts.c  Sqrts.class  sqrts.scm
+rns202-14.cs.stolaf.edu% cp ~cs241/hw/sqrts.py
+cp: missing destination file operand after ‘/home/users/cs241/hw/sqrts.py’
+Try 'cp --help' for more information.
+rns202-14.cs.stolaf.edu% cp ~cs241/hw/sqrts.py .
+rns202-14.cs.stolaf.edu% cat sqrts.py
+# print square roots in Python language.  R. Brown, 9/2010 
+
+from math import sqrt
+
+print("sqrt(n)\n--------")
+
+for n in range(0, 6):
+    print(sqrt(n))
+rns202-14.cs.stolaf.edu% pythn[Kon 3 sqrts.py
+sqrt(n)
+--------
+0.0
+1.0
+1.41421356237
+1.73205080757
+2.0
+2.2360679775
+rns202-14.cs.stolaf.edu% pythin[K[Kon3 -m py_compl[Kile sqrts.py
+rns202-14.cs.stolaf.edu% pythin[K[Kon3 sqrts.pyc
+sqrt(n)
+--------
+0.0
+1.0
+1.41421356237
+1.73205080757
+2.0
+2.2360679775
+rns202-14.cs.stolaf.edu% exit
+There are suspended jobs.
+rns202-14.cs.stolaf.edu% exit
+exit
+
+Script done on Sat 12 Sep 2015 06:14:47 PM CDT
