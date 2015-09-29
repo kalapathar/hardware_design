@@ -16,7 +16,7 @@ int main() {
 do{
   result = result + i*i; 
     i++;
-} while (i <= n)
+} while (i <= n);
 
   printf("The sum of the first %d squares is %d.\n", n, result);
   return 0;  
