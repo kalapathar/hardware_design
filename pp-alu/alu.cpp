@@ -5,7 +5,7 @@ using namespace std;
 int alu(int f0, int f1, int inva, int ena, int enb, int carryin, int a, int b)
 {
 	//x stores the output and y stores the carry out. I have simply converted the figure 3.19 of Page 167 into C++ codes.
-	int x = bor( // Twenty One, output
+	return (bor( // Twenty One, output
 		band( // First
 			band( // Fifth
 				bxor( // Seventh
@@ -78,8 +78,8 @@ int alu(int f0, int f1, int inva, int ena, int enb, int carryin, int a, int b)
 				f1
 				)
 			)
-		); //The value of x stored depending upon the above function
-	int y = bor( //Twenty two
+		)<<1 | //The value of x stored depending upon the above function
+	bor( //Twenty two
 	 	band( //Twenty Three
 	 		carryin,
  			bxor( //Nineteen
@@ -117,16 +117,10 @@ int alu(int f0, int f1, int inva, int ena, int enb, int carryin, int a, int b)
 				enb
 				)
 	 		)
-	 	); //Value of Y is determined based on the above function
+	 	));
+	 	 //Value of Y is determined based on the above function
 	//Based on the values of x and y we return the values from the function
-	if (x == 0 & y == 0)
-		return 0;
-	if (x == 0 & y == 1)
-		return 1;
-	if (x == 1 & y == 0)
-		return 2;
-	if (x == 1 & y == 1)
-		return 3;
+	
 
 }
 
