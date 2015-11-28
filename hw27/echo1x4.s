@@ -8,6 +8,8 @@
         _STDOUT = 1             
 .SECT .TEXT                     
 start:  ! print prompt, as detailed in next five instructions
+        MOV     CX,4
+1:
         PUSH    buff-prompt     ! third arg is length of prompt
         PUSH    prompt          ! second arg is address of prompt
         PUSH    _STDOUT         ! first arg is standard output
@@ -15,19 +17,22 @@ start:  ! print prompt, as detailed in next five instructions
         SYS                     ! perform the system call
         ADD     SP,8            ! clean up stack
                         
-        PUSH    6              ! read two characters...
+        
+        PUSH    6               ! read two characters...
         PUSH    buff            ! into buff...
         PUSH    _STDIN          ! from standard input
         PUSH    _READ
         SYS
-        ADD     SP,8            ! clean up stack
+        ADD     SP,8           ! clean up stack
+        
         PUSH    6               ! then print those characters
         PUSH    buff
         PUSH    _STDOUT         ! on standard output
         PUSH    _WRITE
         SYS
         ADD     SP,8            ! clean up stack
-
+        SUB     CX,1
+        JNZ     1b
         PUSH    0               ! exit with normal exit status
         PUSH    _EXIT           
         SYS                     
@@ -35,5 +40,5 @@ start:  ! print prompt, as detailed in next five instructions
 .SECT .DATA                     
 prompt:                         
 .ASCII  "Type one character, then press ENTER:  "         
-buff:   .SPACE	2
+buff:   .SPACE 1
 .SECT .BSS
