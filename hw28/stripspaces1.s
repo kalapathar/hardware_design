@@ -30,7 +30,7 @@ start:
 1:	!! loop invar: all non-space chars before (BX) have been printed
 	CMP	BX,DX		! if unprocessed bytes remain in buff...
 	JE	9f
-	CMPB	(BX),' '	! then if next byte is not a space...
+	CMPB (BX),' '	! then if next byte is not a space...
 	JE	2f
 	PUSH	1		! print that byte
 	PUSH	BX
@@ -38,8 +38,17 @@ start:
 	PUSH	_WRITE
 	SYS
 	ADD	SP,8
-2:	INC	BX		! move to next char of buff
-	JMP	1b		! end of loop
+	
+2:	
+ADDB (BX), 63
+PUSH 1
+PUSH BX
+PUSH _STDOUT
+PUSH _WRITE
+SYS
+ADD SP,6
+INC	BX		! move to next char of buff
+JMP	1b		! end of loop
 	
 
 9:	PUSH	0		! normal exit status
