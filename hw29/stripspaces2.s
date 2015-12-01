@@ -26,6 +26,7 @@ start:
 	MOV	DX,AX
 	ADD	DX,buff		! set DX to addr of first byte after input
 	MOV	BX,buff		! initialize loop
+	!PUSH BX
 	
 1:	!! loop invar: all non-space chars before (BX) have been printed
 	CMP	BX,DX		! if unprocessed bytes remain in buff...
