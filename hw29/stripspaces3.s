@@ -30,7 +30,17 @@ start:
 1:	!! loop invar: all non-space chars before (BX) have been printed
 	CMP	BX,DX		! if unprocessed bytes remain in buff...
 	JE	9f
-	CMPB	(BX),' '	! then if next byte is not a space...
+	PUSH (BX)
+	CALL isspace
+	ADD SP,2
+	CMP AX,1
+
+
+
+
+
+
+	!CMPB	(BX),' '	! then if next byte is not a space...
 	JE	2f
 	PUSH	1		! print that byte
 	PUSH	BX
@@ -47,6 +57,19 @@ start:
 9:	PUSH	0		! normal exit status
 	PUSH	_EXIT		! end program
 	SYS
+
+
+isspace:
+PUSH BP
+MOV BP,SP
+CMPB (BX),' '
+JE  5f
+6: MOV AX,0    !if there is not a space the return value is 0
+   POP BP
+   RET
+
+5: MOV AX,1      !if there is a space, then the retur value is 1
+   JMP 6b
 
 .SECT .DATA
 prompt:	.ASCII "Enter input: "

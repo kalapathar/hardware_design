@@ -15,12 +15,10 @@ start:
 	PUSH	_WRITE
 	SYS
 	ADD	SP,8		! clean up stack
-	PUSH	BUFFSIZE	! read input line
 	PUSH	buff
-	PUSH	_STDIN		! from standard input
-	PUSH	_READ
-	SYS
-	ADD	SP,8		! clean up stack
+	CALL    do_read
+	ADD     SP,2
+
 
 	!! assert: AX holds number of bytes that were read
 	MOV	DX,AX
@@ -40,14 +38,32 @@ start:
 	SYS
 	ADD	SP,8
 
+
+
 2:	
     INC	BX		! move to next char of buff
 	JMP	1b		! end of loop
 	
 
+		do_read:
+PUSH BP
+MOV BP,SP
+PUSH BUFFSIZE
+PUSH 4(BP)
+PUSH _STDIN
+PUSH _READ
+SYS
+ADD SP,8
+POP BP
+RET
+
+
 9:	PUSH	0		! normal exit status
 	PUSH	_EXIT		! end program
 	SYS
+
+
+
 
 .SECT .DATA
 prompt:	.ASCII "Enter input: "
