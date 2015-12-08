@@ -1,0 +1,65 @@
+_EXIT=1
+_READ=3
+_WRITE=4
+_STDIN=0
+_STDOUT=1
+BUFFSIZE=80
+_GETCHAR=117
+
+.SECT .TEXT
+start:
+PUSH endpr-prompt
+PUSH prompt
+PUSH _STDOUT
+PUSH _WRITE
+SYS
+ADD SP,8
+
+PUSH _GETCHAR
+SYS
+ADD SP,2
+MOVB (buff),AL
+!PUSH _GETCHAR
+!SYS
+!ADD SP,2
+!MOV(buff+1),AL
+
+MOVB BH,0
+MOVB BL,(buff)
+PUSH BX
+CALL crypt
+ADD SP,2
+
+PUSH 1
+PUSH AX !check with buff
+PUSH _STDOUT
+PUSH _WRITE
+SYS
+ADD SP,8
+PUSH 0 
+PUSH _EXIT
+SYS
+
+crypt:
+PUSH BP
+MOV BP,SP
+CMPB 4(BP), 'A'
+JE 2f
+POP BP
+RET
+
+2:
+ADDB 4(BP),32
+POP BP
+RET
+
+
+.SECT .DATA
+prompt: .ASCII "Enter a letter: "
+endpr:
+
+
+
+.SECT .BSS
+buff: .SPACE BUFFSIZE 
+
